@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const { auth, adminAuth } = require('../middleware/auth');
 
 const storesRouter = require('./stores');
 const productsRouter = require('./products');
 const ordersRouter = require('./orders');
-const { router: authRouter, auth } = require('./auth');
+const authRouter = require('./auth');
 
-// Маршруты авторизации
+// Публичные маршруты
 router.use('/auth', authRouter);
 
 // Защищенные маршруты
